@@ -1,0 +1,10 @@
+<div>
+  <h1>TASK 2</h1>
+  <input type="text" name="tasks" placeholder="Enter the Task" [(ngModel)]="taskdata">
+  <input type="button" value="Add Task" (click)="addTask()">
+  <div *ngFor="let x of taskList.reverse(); let i = index">
+    <input #status type="checkbox" [checked] = "x.done" (click)="updateTask(status.checked, i)">
+    <span [ngClass]="{'done': x['done']}">{{x['title']}}</span>
+  </div>
+  <input *ngIf="taskList.length > 0" type="button" value="Clear Tasks" (click)="clearTask()">
+</div>
